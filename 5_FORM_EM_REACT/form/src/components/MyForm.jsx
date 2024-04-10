@@ -9,7 +9,9 @@ const MyForm = ({ user }) => {
   const [name, setName] = useState(user ? user.name : "");
   const [email, setEmail] = useState(user ? user.email : "");
 
-  const [bio, setBio] = useState("")
+  const [bio, setBio] = useState(user ? user.bio : "");
+
+  const [role, setRole] = useState(user ? user.role : "");
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -20,16 +22,16 @@ const MyForm = ({ user }) => {
 
   //enviando formulario
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     console.log("Enviando formulario");
-    console.log(name, email, bio);
+    console.log(name, email, bio, role);
 
     // 7 - limpar fomulario
-    setName("")
-    setEmail("")
-    setBio("")
+    setName("");
+    setEmail("");
+    setBio("");
   };
   return (
     <div>
@@ -47,7 +49,6 @@ const MyForm = ({ user }) => {
             onChange={handleName}
             value={name}
           />
-          
         </div>
 
         {/* Label envolvendo input*/}
@@ -65,12 +66,31 @@ const MyForm = ({ user }) => {
 
         {/*Input textarea */}
 
+        <label>
+          <span>Bio: </span>
+          <textarea
+            name="bio"
+            placeholder="Descrição do usuario"
+            onChange={(e) => setBio(e.target.value)}
+            value={bio}
+          ></textarea>
+        </label>
 
-<label >
-<span>Bio: </span>
-<textarea name="bio" placeholder="Descrição do usuario" onChange={(e) => setBio(e.target.value)} value={bio} ></textarea>
+        {/*Função sistema*/}
 
-</label>
+        <label>
+          <span> função do sistema</span>
+          <select
+            name="role"
+            onChange={(e) => setRole(e.target.value)}
+            value={role}
+          >
+            <option value="user"> Usuario</option>
+            <option value="editor">Editor</option>
+            <option value="adm">Administrador</option>
+          </select>
+        </label>
+
         <input type="submit" value="Enviar" />
       </form>
     </div>
