@@ -2,7 +2,8 @@ import { useRef, useState } from "react";
 import "./Game.css";
 
 const Game = ({
-  verifyLetther,
+  // eslint-disable-next-line react/prop-types
+  verifyLetter,
   pickedWord,
   pickedCategory,
   letters,
@@ -16,7 +17,7 @@ const Game = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    verifyLetther(letter);
+    verifyLetter(letter);
 
     setLetter("");
 
