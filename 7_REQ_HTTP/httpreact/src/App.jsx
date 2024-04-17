@@ -10,7 +10,7 @@ function App() {
 
   //4 custom hook
 
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -60,17 +60,33 @@ function App() {
     setPrice("");
   };
 
+  // 8 desafio 6
+
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
+  };
+
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
-      <ul>
-        {items &&
-          items.map((product) => (
-            <li key={product.id}>
-              {product.name} - R$: {product.price}
-            </li>
-          ))}
-      </ul>
+      {/*6 Loading */}
+
+      {loading && <p>Carregando Dados...</p>}
+      {error && <p>{error}</p>}
+
+      {!error && (
+        <ul>
+          {items &&
+            items.map((product) => (
+              <li key={product.id}>
+                {product.name} - R$: {product.price}
+                <button onClick={() => handleRemove(product.id)}>
+                  Excluir
+                </button>
+              </li>
+            ))}
+        </ul>
+      )}
 
       <div className="add-product"></div>
       <form onSubmit={handleSubmit}>
@@ -94,7 +110,9 @@ function App() {
           />
         </label>
 
-        <input type="submit" value="Criar" />
+        {/* 7 state de loading post */}
+        {loading && <input type="submit" disabled value="Aguarde" />}
+        {!loading && <input type="submit" value="Criar" />}
       </form>
     </div>
   );
