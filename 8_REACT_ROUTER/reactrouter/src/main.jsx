@@ -5,7 +5,11 @@ import "./index.css";
 
 // 1 configurando routes
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 // pages
 
@@ -28,7 +32,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "about",
+        path: "/about",
         element: <About />,
       },
 
@@ -44,6 +48,12 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <Product />,
+      },
+      // redirect
+
+      {
+        path: "/company",
+        element: <Navigate to="/about" />,
       },
     ],
   },
