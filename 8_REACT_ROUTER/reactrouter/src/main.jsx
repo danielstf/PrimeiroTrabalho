@@ -12,6 +12,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./routes/About.jsx";
 import Home from "./routes/Home.jsx";
 import Info from "./routes/Info.jsx";
+import Search from "./routes/Search.jsx";
 
 import Product from "./routes/Product.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+
+      {
+        path: "/search",
+        element: <Search />,
       },
       // 5 nested routes
       {
