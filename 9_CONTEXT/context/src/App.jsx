@@ -1,4 +1,7 @@
 import "./App.css";
+
+import { ThemeProvider } from "./context/ThemeContext.jsx";
+
 import { Outlet } from "react-router-dom";
 
 // componentes

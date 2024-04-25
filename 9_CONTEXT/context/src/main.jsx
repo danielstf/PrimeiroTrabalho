@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-import { CouterContextProvider } from "./context/CounterContext";
+//context
 
 //configurando rotas
 
@@ -39,9 +39,11 @@ const router = createBrowserRouter([
   },
 ]);
 
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CouterContextProvider router></CouterContextProvider>
-    <RouterProvider router={router}></RouterProvider>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
