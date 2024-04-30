@@ -1,7 +1,5 @@
 import "./App.css";
 
-import { ThemeProvider } from "./context/ThemeContext.jsx";
-
 import { Outlet } from "react-router-dom";
 
 // componentes
@@ -11,7 +9,6 @@ import NavBar from "./components/NavBar";
 
 import { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext.jsx";
-
 function App() {
   const { theme } = useContext(ThemeContext);
 
