@@ -1,13 +1,16 @@
 import "./App.css";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 //Componentes
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 
 //Routes
-import Home from "./Routes/Home/Home";
 import About from "./Routes/About/About";
-import Footer from "./components/Footer";
+import Home from "./Routes/Home/Home";
+import Login from "./Routes/Login/Login";
+import Register from "./Routes/Register/Register";
 
 function App() {
   return (
@@ -19,6 +22,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </div>
 
