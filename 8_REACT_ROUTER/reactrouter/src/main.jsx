@@ -11,6 +11,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+// prime react
+
+import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
+
 // pages
 
 import About from "./routes/About.jsx";
@@ -61,6 +65,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <PrimeReactProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </PrimeReactProvider>
   </React.StrictMode>
 );

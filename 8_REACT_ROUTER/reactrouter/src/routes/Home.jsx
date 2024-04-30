@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
+//primereact
+primereact / resources / themes / bootstrap4 - light - blue / theme.css;
+
+import { Button } from "primereact/button";
+
 //css
 import "./Home.css";
 
@@ -14,6 +19,8 @@ const Home = () => {
   return (
     <div>
       <h1>Produtos</h1>
+
+      <Button label="Submit" />
       {error && <p>{error}</p>}
       <ul className="products">
         {items &&
